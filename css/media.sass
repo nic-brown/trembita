@@ -1,0 +1,533 @@
+$primary-font-size: 12px
+$primary-font-color: #232f3d
+$primary-bg-color: #f5f9fa
+
+$font-regular: "Gilroy-Regular"
+$font-thin: "Gilroy-Thin"
+$font-bold: "Gilroy-Bold"
+$font-semi: "Gilroy-SemiBold"
+$font-med: "Gilroy-Medium"
+$font-extra: "Gilroy-ExtraBold"
+$font-black: "Gilroy-Black"
+
+$color-red: #cd0720
+
+$awesome-light: "Awesome-Light"
+$awesome-brand: "Awesome-Brand"
+$awesome-regular: "Awesome-Regular"
+$awesome-solid: "Awesome-Solid"
+
+// @media (max-width: 1800px)
+//   .layer-inner
+//     width:  1840px
+
+// @media (max-width: 1600px)
+//   .layer-inner
+//     width:  1640px
+// @media (max-width: 1400px)
+//   .layer-inner
+//     width:  1440px
+//   .sparkle-box
+//     bottom: 30%
+
+// @media (min-height: 750px)
+//   .sparkle-box
+//     bottom: 27%
+// @media (min-height: 900px)
+//   .sparkle-box
+//     bottom: 31%
+// @media (min-height: 1000px)
+//   .sparkle-box
+//     bottom: 33% 
+
+// @media screen and (min-width: 1200px) and (min-height: 750px)
+//   .sparkle-box
+//     bottom: 27%
+// @media screen and (min-width: 1200px) and (min-height: 900px)
+//   .sparkle-box
+//     bottom: 31%
+// @media screen and (min-width: 1200px) and (min-height: 1000px)
+//   .sparkle-box
+//     bottom: 33% 
+
+// // ---------------------------------------------------------------------------------------------------
+// @media all  and (max-width: 1200px) and (max-width: 1199.98px)
+// //---------------------------------------------------------------------------------------------------
+// @media all and  (max-width: 992px) and (max-width: 991.98px)
+// // ---------------------------------------------------------------------------------------------------
+// @media all and (max-width: 768px) and (max-width: 767.98px)
+// // ---------------------------------------------------------------------------------------------------
+// @media all and  (max-width: 576px) and (max-width: 575.98px)
+
+// // ---------------------------------------------------------------------------------------------------
+@media all  and (max-width: 1200px) and (max-width: 1199.98px)
+  .slider-nav-goods
+    display: block
+  .prodsin-table-cell-price
+    order: 4
+  .nav-top-inner
+    .header-menu
+      letter-spacing: normal
+    li
+      margin: 0 5px
+  .nav-col-2   a,.main-slider-col-2,.header-blick
+    display: none
+  .main-slider-col-1
+    padding: 46px 20px 60px 58px
+  .bnf-card-img
+    width: 70px
+    margin-right: 0
+    img
+      max-width: 40px
+      max-height: 40px
+  .bnf-card
+    font-size: 11px
+    letter-spacing: 0.66px
+    line-height: 15px
+    .bnf-card-title
+      font-size: 12px
+      line-height: 16px
+      letter-spacing: 0.72px
+  .popular-goods .swiper-wrapper
+    grid-template-columns: repeat(auto-fill, minmax(28%, 1fr))
+  // goods  styles ------------
+  .popular-goods
+    display: block
+    margin: 0 -8px
+    .swiper-wrapper
+      display: flex
+      grid-gap: 0
+      grid-template-columns: none
+    .product
+      margin: 0 8px
+      display: flex !important
+      width: 274px
+  #loadMore,.home-product-holder:after
+    display: none
+  .main-header
+    .btn-wrapper
+      margin-top: 60px
+  // the end of goods  styles    ------------
+  .main-header
+    .sec-title-centered
+      padding-right: 120px
+      text-align: left
+      h2
+        &:before, &:after
+          display: none
+  .footer-menu
+    letter-spacing: 0.2px
+  .footer-col-2
+    max-width: 272px
+  .product-holder-cat
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr))
+  .wp-pagenavi
+    padding: 30px 0
+  .overflow-con
+    max-height: 100vh
+    &:after
+      display: block
+  .expand-overflow
+    display: block
+  .overflow-wrapper.visible
+    .overflow-con:after
+      display: none
+    .expand-overflow
+      opacity: 0
+      visibility: hidden
+  .prodsin-sliders
+    flex-wrap: wrap
+  .swiper-product
+    order: 0
+  .swiper-product-nav
+    order: 1
+  .swiper-product-nav
+    margin: 5px auto 0 0
+    height: auto
+    width: calc(100% - 100px)
+    .swiper-slide
+      height: 60px !important
+      border-radius: 5px
+  .swiper-product-inner
+    height: 386px
+  .product-next, .product-prev
+    left: auto
+    right: 20px
+    transform: rotate(90deg)
+    bottom: 16px
+  .product-next
+    transform: rotate(-90deg)
+  .product-prev
+    right: 50px
+  .prodsin-table-cell:nth-child(odd),.prodsin-table-cell:nth-child(even)
+    width: 100%
+  .prodsin-table-cell
+    margin: 5px 0
+  .prodsin-price
+    padding: 5px 0
+  .rev ,.port,.news
+    .sec-title
+      padding-right: 120px
+// //---------------------------------------------------------------------------------------------------
+@media all and  (max-width: 992px) and (max-width: 991.98px)
+  .open-filter-btn
+    display: inline-flex
+  .main-slider-col-1
+    padding: 30px
+  .main-slider h1
+    line-height: normal
+    font-size: 28px
+    letter-spacing: 1px
+    &:before
+      left: -10px
+      top: -10px
+      right: -10px
+      bottom: -10px
+  .main-slider
+    height: 100%
+    .swiper-slide
+      min-height: 350px
+  .swiper-pagination.swiper-pagination-bullets
+    padding-left: 30px
+    bottom: 13px
+  .nav-top-inner
+    display: none
+  // .main-header
+  .bnf-holder
+    flex-wrap: wrap
+    justify-content: center
+    margin: 44px 0 64px 0
+  .bnf-cards
+    max-width: 510px
+    margin-bottom: 20px
+  .port-slider .inline-gallery
+    height: 300px
+  .rev-box
+    flex-wrap: wrap
+  .rev-col
+    width: 100%
+  .rev-col:first-child
+    order: 1
+    margin-top: 30px
+  .slider-btn-next, .slider-btn-prev
+    transform: none
+  .rev-slider
+    height: unset
+    &:after
+      display: none
+  .wpmtst-submit
+    padding-top: 24px
+    margin-top: 0
+    &:after,&:before
+      display: none
+  .footer-menu
+    margin-top: 30px
+    justify-content: center
+    li
+      width: auto
+      margin: 0 8px
+  .footer-inner
+    flex-wrap: wrap
+  .footer-col-2
+    order: 4
+    max-width: 100%
+    width: 100%
+  .open-header-contact
+    display: block
+  .nav-col-3,.nav-col-4
+    display: none
+  .nav-col-2 a
+    display: inline-flex
+  .nav-bottom
+    padding: 8px 0
+  .main-header
+    padding: 100px 0 30px 0
+
+  .filter
+    position: absolute
+    top: 0
+    left: 0
+    box-shadow: 0 10px 60px rgba(47, 54, 71, 0.1)
+    border: 1px solid #eaeaea
+    border-radius: 15px
+    background-color: #ffffff
+    z-index: 100
+    width: 290px
+    padding: 0 14px 0 14px
+    overflow: hidden
+    transition: .2s
+    transform: translateX(-50px) translateZ(0)
+    opacity: 0
+    visibility: hidden
+    &.visible
+      transform: translateX(0) translateZ(0)
+      opacity: 1
+      visibility: visible
+    .bnf-cards-small
+      display: none
+
+  .searchandfilter > ul > li:first-child
+    border: none
+  .nav-separator
+    height: 10px
+  .prodsin-offer
+    padding: 20px
+  .prodsin-desc
+    margin: 22px 0 10px 0
+  .prodsin-col-3,.prodsin-col-4
+    width: 100%
+  .about-box
+    padding: 30px 0 20px
+    flex-wrap: wrap
+    >div
+      width: 100%
+  .about-info
+    padding: 20px 0 0 0
+    max-width: 550px
+    margin: auto
+
+  .our-box .inline-gallery
+    height: 250px
+  .our-box
+    grid-gap: 10px
+  .delivery-box,.terms-box
+    flex-wrap: wrap
+  .delivery-col,.terms-col
+    width: 100%
+  .delivery-col-2
+    margin: 20px 0 0 0
+  .terms-col-1
+    order: 2
+    width: 360px
+    margin: 20px auto 0 auto
+  .contact
+    .about-img
+      margin: auto
+    .about-info
+      padding: 20px 20px 0 20px
+  .terms .terms-box
+    margin-top: 10px
+  .delivery .delivery-box
+    margin-top: 20px
+  // .contactsin
+  //   flex-wrap: wrap
+// // ---------------------------------------------------------------------------------------------------
+@media all and (max-width: 768px) and (max-width: 767.98px)
+  .our-box
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr))
+    .inline-gallery
+      height: 320px
+  .nav-col-2 a
+    display: none
+  .main-header-box
+    flex-wrap: wrap
+  .main-slider .swiper-slide
+    min-height: auto
+  .main-header-form
+    max-width: 300px
+    margin: 40px auto 0 auto
+
+  h2, .h2-style
+    font-size: 26px
+    line-height: normal
+    letter-spacing: 1px
+  .main-header .bnf-holder
+    margin: 44px 0 74px 0
+  .swiper-goods-next, .swiper-goods-prev
+    top: -51px
+  .swiper-rev-next, .swiper-rev-prev,.swiper-news-next, .swiper-news-prev, .swiper-port-next, .swiper-port-prev
+    top: -98px
+  .news-slider
+    overflow: unset
+    .swiper-slide
+      width: 290px
+  .port-slider
+    overflow: unset
+    .swiper-slide
+      width: 224px
+  .footer-col-1
+    text-align: center
+    width: 100%
+    max-width: unset
+    margin-bottom: 30px
+  .main-footer
+    padding: 20px 0
+  .ask
+    padding: 60px 0
+  .main-menu-pop-inner
+    padding: 26px 24px 10px 24px
+    .menu-col:not(:last-child)
+      margin-right: 20px
+  .product-holder-cat
+    grid-gap: 10px
+    .add-to-cart
+      padding: 0 16px
+    .product-bottom
+      padding-right: 0
+  .prodsin-col
+    width: 100%
+  .prodsin-col-2
+    margin-top: 30px
+  .incdec-box
+    width: 100%
+  .product-code
+    padding-bottom: 20px
+    margin-top: 10px
+    text-align: left
+  .about-box
+    padding: 20px 20px 0 20px
+  .contactsin-col
+    width: 100%
+  .contactsin-col-1
+    order: 2
+    max-width: 220px
+    margin: auto
+    h1
+      display: none
+  .contactsin
+    flex-wrap: wrap
+  .contact-title-hidden
+    display: block
+    margin-bottom: 30px
+  .contactsin
+    padding-top: 0
+
+// // ---------------------------------------------------------------------------------------------------
+@media all and  (max-width: 576px) and (max-width: 575.98px)
+  .main-header-form
+    max-width: 100%
+  .bnf-card,.main-header-form
+    width: 100%
+  .bnf-card
+    margin: 10px 0
+  .bnf-extra
+    width: 100%
+  h2, .h2-style
+    font-size: 20px
+  .form-title, .cat-title, .custom-title
+    line-height: normal
+    font-size: 20px
+    letter-spacing: 1px
+  .field-client_name, .field-client_phone,.comment-form-phone,.comment-form-title
+    width: 100%
+  section,.ask
+    padding: 50px 0
+  .footer-col-3
+    margin-bottom: 20px
+  .terms-col-1
+    width: 100%
+  .main-header ,.port ,.news,.our
+    .btn-wrapper
+      margin-top: 30px
+  .bnf-extra-i
+    text-align: center
+    flex-wrap: wrap
+    >div
+      width: 100%
+  .nav-bottom
+    padding: 5px 0
+  .logo img
+    max-width: 150px
+  .open-header-contact
+    margin-left: 4px
+  .open-header-contact,#open-catalog
+    width: 40px
+    height: 40px
+    min-width: unset
+  .nav-col-2
+    margin-left: auto
+  #open-catalog
+    padding: 0
+    justify-content: center
+    img
+      margin: 0
+    span
+      display: none
+  .main-menu-pop-inner
+    flex-wrap: wrap
+  .menu-col
+    width: 100%
+  .main-menu a
+    padding: 4px 0
+  .main-header
+    padding: 85px 0 30px 0
+  .wp-pagenavi
+    padding: 20px 0
+  .product-holder-cat
+    padding-top: 0
+  .wp-pagenavi
+    .previouspostslink
+      margin-right: 5px
+      padding-left: 24px
+    .nextpostslink
+      padding-right: 24px
+      margin-left: 5px
+    .previouspostslink,  .nextpostslink
+      font-size: 12px
+
+  .product-holder-cat .product-bottom
+    padding-right: 14px
+  .product-holder-cat .add-to-cart
+    padding: 0 23px
+  .product-holder-cat
+    grid-gap: 15px
+    grid-template-columns: repeat(auto-fill, minmax(90%, 1fr))
+  .product-desc
+    padding-bottom: 10px
+  .product-name
+    margin-bottom: 10px
+  .product-img
+    height: 140px
+  .product
+    padding: 20px 10px 20px 10px
+  .breadcumbs
+    padding: 20px 0
+  .swiper-product-inner
+    height: 320px
+  .prodsin-offer-top
+    flex-wrap: wrap
+  .prodsin-brand
+    width: 100%
+    order: 2
+  .avai
+    margin-bottom: 16px
+  .prodsin-offer .add-to-cart
+    width: 120px
+    padding: 0 4px
+  .cart-qty-minus
+    left: 14px
+  .cart-qty-plus
+    right: 14px
+  .rev-slide-text,.testimonial-name+.testimonial-field
+    padding-top: 20px
+  .breadcumbs
+    margin-bottom: 16px
+  .about .bnf-holder
+    margin-top: 20px
+  .about .main-sub
+    margin: 17px 0 20px
+  .qty
+    padding: 0 35px
+  .rev-slide-inner,.comment
+    background-position: 18px 18px
+    padding: 24px 15px 10px 80px
+  .prodsin-rev
+    padding: 20px 20px 0 20px
+  .prodsin-rev .rev-form-wrapper,.comment-respond
+    margin: 30px -35px 0 -35px
+    padding: 20px 35px 0 35px
+  .our-box .inline-gallery
+    height: 250px
+  h1.h2-style
+    font-size: 26px
+    line-height: normal
+    letter-spacing: 1px
+  .terms-col-2
+    padding-top: 0
+  .delivery .delivery-box
+    margin-top: 0
+  .contact .about-box
+    padding-right: 0
+    padding-left: 0
+  .about-img img
+    max-width: 220px
