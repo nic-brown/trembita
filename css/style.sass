@@ -15,9 +15,6 @@
   //   left: 0
   //   top: 2px 
 
-$primary-font-color: #2f3647
-$color-red: #d63c2d
-
 $font-reg: 'KyivTypeSans-Regular2'
 $font-med: 'KyivTypeSans-Medium2'
 $font-bold: 'KyivTypeSans-Bold2'
@@ -167,7 +164,96 @@ h2,.pop-title
 .text-center
   text-align: center
 //---------------------- THE END OF BASIC STYLES 
-nav
+
+.nav-mob
+  display: none
+  pointer-events: none
+  opacity: 0
+  visibility: hidden
+  position: fixed
+  height: 100%
+  width: 100%
+  left: 0
+  top: 0
+  z-index: 999
+  font-family: $font-mont
+  transition: .2s
+  background: #fff
+
+  padding: 60px 0
+  &.visible
+    opacity: 1
+    visibility: visible
+    pointer-events: auto
+  .header-location,.header-phone,.call-me-back
+    color: #3D3D3D
+    font-weight: 500
+  .call-me-back
+    color: #767676
+  .call-me-back:after
+    background: #767676
+  .header-location
+    margin: 0 0 30px 0
+    &:after
+      content: url(../img/header-location-dark.svg)
+  .header-phone
+    &:after
+      content: url(../img/header-phone-dark.svg)
+  .nav-offer
+    margin-left: 0
+    align-items: flex-start
+  .call-me-back
+    margin-left: 25px
+  .main-menu
+    margin-bottom: 80px
+    flex-direction: column
+    width: 100%
+    font-weight: 500
+    text-align: center
+    li
+      width: 100%
+      margin-top: -1px
+      display: flex
+      justify-content: center
+      flex-direction: column
+      align-items: center
+    a
+      position: relative
+    >li
+      border-bottom: 1px solid rgb(239, 239, 239)
+      border-top: 1px solid rgb(239, 239, 239)
+    .sub-menu
+      width: 100%
+      padding: 0
+      display: block
+      position: relative
+      opacity: 1
+      visibility: visible
+      top: 0
+      left: 0
+      background: transparent
+      a
+        font-size: 12px
+        padding: 16px 0
+      li:hover    a
+        color: rgb(255, 219, 97)
+    > li > a
+      padding: 16px 0
+    .menu-item-has-children:after
+      display: none
+    .menu-item-has-children > a:after
+      content: url(../img/has-children-arrow-dark.svg)
+      position: absolute
+      right: 0
+      top: 50%
+      margin-top: -10px
+    > li:not(:last-child)
+      margin-right: 0
+    a
+      color: #3D3D3D
+.nav-mob-extra
+  margin: 0 auto
+#main-nav
   position: fixed
   width: 100%
   left: 0
@@ -179,6 +265,8 @@ nav
     box-shadow: 0px 4px 22px 0px rgba(0, 0, 0, 0.15)
     background: rgba(255, 255, 255, 0.7)
     backdrop-filter: blur(20px)
+    #burger span
+      background: #3D3D3D
     .nav-inner
       padding: 27px 0
     .header-location,.header-phone,.call-me-back
@@ -239,7 +327,7 @@ nav
     background: rgba(38, 70, 109, 0.1)
     transition: .1s
 .logo-inner
-  background: url(../img/logo.svg) no-repeat center center / cover
+  background: url(../img/logo.svg) no-repeat center center / contain
   width: 128px
   height: 66px
   position: relative
@@ -322,6 +410,7 @@ nav
   left: 50%
   transform: translateX(-50%)
 .header-bg
+
   background-position: center bottom
   width: 100%
   height: 100%
@@ -383,6 +472,8 @@ nav
   margin-top: -63px
   display: flex
   justify-content: center
+  position: relative
+  z-index: 11
 .call-now
   margin: auto
   border-radius: 44.5px
@@ -441,7 +532,22 @@ nav
     position: absolute
     left: 0
     top: 3px
+.pop-phone
+  position: relative
+  display: inline-block
+  font-weight: 500
+  color: #000
+  letter-spacing: 0.72px
+  padding-left: 24px
+  font-family: $font-mont
+  margin-top: 14px
+  &:after
+    content: url(../img/header-phone-dark.svg)
+    position: absolute
+    left: 0
+    top: 3px
 .header-location
+  max-width: 200px
   margin-left: auto
   color: #fff
   font-size: 10px
@@ -482,6 +588,11 @@ nav
 .dream-slider
   .swiper-slide
     width: 246px
+
+  a
+    display: block
+  img
+    @extend %imgcover
 .dream-next,
 .dream-prev
   top: 50%
@@ -502,7 +613,7 @@ nav
 .dream-box
   margin: 160px 0 0 0
   display: flex
-  flex-wrap: wrap
+  // flex-wrap: wrap
   justify-content: flex-end
   align-items: center
   .dream-cards
@@ -516,6 +627,7 @@ nav
   margin-right: 114px
   min-height: 768px
   padding: 50px 50px 0 0
+  flex-shrink: 0
 .dream-col-2
   width: 50%
 .dream-btn,.myfile-label
@@ -527,7 +639,7 @@ nav
   font-size: 15px
   line-height: 24px
   padding: 27px 160px 27px 204px
-  background: url(../img/dream-btn.png) no-repeat left 36px top 4px
+  background: url(../img/dream-btn.png) no-repeat left 36px center
   position: relative
   transition: border-color .2s
   strong
@@ -821,6 +933,8 @@ nav
   border: none
   margin: 17px 0
 .beefup__head
+  text-overflow: unset
+  white-space: normal
   font-size: 16px
   font-family: $font-bold
   line-height: 20px
@@ -921,9 +1035,19 @@ nav
   .parent-next,
   .parent-prev
     pointer-events: auto
+@media (min-width: 576px)
+  .port-container,.parent-navi
+    max-width: 540px
+@media (min-width: 768px)
+  .port-container,.parent-navi
+    max-width: 720px
+@media (min-width: 992px)
+  .port-container,.parent-navi
+    max-width: 960px
 @media (min-width: 1200px)
   .port-container,.parent-navi
     max-width: 1200px
+
 .port-container-inner
   width: 50%
   margin-left: auto
@@ -1005,7 +1129,7 @@ nav
   justify-content: center
 .port-nav-btn,.tab-nav-btn
   border: 2px solid rgba(255, 255, 255, 0.4)
-  border-radius: 50px 0px 0px 50px
+  border-radius: 50px 0 0 50px
   box-shadow: 0px 4px 15px 0px rgba(118, 91, 58, 0.25)
   background: radial-gradient(193.38% 113.32% at 50% -9%,rgb(255, 237, 187),rgb(254, 219, 85) 70.147%)
   font-size: 12px
@@ -1017,6 +1141,8 @@ nav
   &.active
     filter: grayscale(0)
     color: rgb(118, 91, 58)
+.port-nav-btn-1
+  border-radius: 37.5px 0px 0px 0px
 .port-nav-btn-2
   border-radius: 0px 37.5px 0px 0px
 .tab-nav-btn:last-child
@@ -1164,6 +1290,13 @@ nav
 // .brig-col
 //   position: relative
 //   z-index: 10
+.brig-col-img
+  position: absolute
+  width: 100%
+  height: 100%
+  left: 0
+  top: 0
+  pointer-events: none
 .brig-col-1
   width: 350px
 .brig-col-2
@@ -1224,6 +1357,8 @@ nav
   input
     display: block
     width: 100%
+.fancybox-button
+  background: transparent
 .fancybox-bg
   background: transparent
 .fancybox-is-open .fancybox-bg
@@ -1271,12 +1406,11 @@ nav
   .tab-nav
     margin: 47px 0 62px
 .cat-cards-holder
-  display: flex
-  flex-wrap: wrap
-  justify-content: space-between
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(40%, 1fr))
+  grid-gap: 20px
 .cat-card
-  width: calc( 50% - 10px )
-  margin: 10px 0
+
   border-radius: 45px
   box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.05)
   background: rgb(255, 255, 255)
@@ -1406,6 +1540,56 @@ nav
   height: 620px
   img
     @extend  %imgcover
+.call-me-back-mob
+  display: none
+  flex-shrink: 0
+  width: 40px
+  height: 40px
+  border: none
+  background: url(../img/header-phone.svg) no-repeat center center
+#burger
+  display: none
+  width: 40px
+  height: 28px
+
+  position: relative
+  transform: rotate(0deg)
+  transition: .5s ease-in-out
+  cursor: pointer
+  // border: 1px dashed yellow
+  & span
+    display: block
+    position: absolute
+    height: 2px
+    width: 18px
+    background: #fff
+    border-radius: 2px
+    opacity: 1
+    margin-left: -9px
+    left: 50%
+    transform: rotate(0deg)
+    transition: .25s ease-in-out
+
+#burger span:nth-child(1)
+  top: 5px
+  width: 14px
+#burger span:nth-child(2),#burger span:nth-child(3)
+  top: 12px
+#burger span:nth-child(4)
+  top: 19px
+#burger.open span:nth-child(1)
+  top: 18px
+  width: 0
+  left: 50%
+#burger.open span:nth-child(2)
+  transform: rotate(45deg)
+#burger.open span:nth-child(3)
+  transform: rotate(-45deg)
+#burger.open span:nth-child(4)
+  top: 18px
+  width: 0
+  left: 50%
+
 .loader
   background: rgb(255, 255, 255)
   position: fixed
@@ -1453,3 +1637,9 @@ nav
     transform: scale(1)
   50%
     transform: scale(2)
+
+// ------------------
+// ------------------
+// ------------------
+// ------------------
+@import 'media.sass'
