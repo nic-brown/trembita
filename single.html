@@ -34,7 +34,7 @@
 <!-- section>.container>.row>.col  -->
 
 <body>
-  <div class="loader">
+  <!-- <div class="loader">
     <img src="img/logo-dark.svg" alt="">
     <div class="logo-circle">
       <span class="logo-circle-1"></span><span class="logo-circle-2"></span><span class="logo-circle-3"></span><span class="logo-circle-4"></span><span class="logo-circle-5"></span>
@@ -47,12 +47,17 @@
     setTimeout(() => {
       $('.loader').addClass('hidden');
     }, "2000");
-  </script>
-  <nav class="fixed-spec">
+  </script> -->
+  <nav id="main-nav" class="fixed-spec">
     <div class="container">
       <div class="row">
         <div class="col">
           <div class="nav-inner">
+            <button
+              class="call-me-back-mob open-popup"
+              data-src="#consl-popup"
+            ></button>
+
             <ul class="main-menu">
               <li class="menu-item-has-children">
                 <a href="catalog.html">БУДІВНИЦТВО</a>
@@ -83,8 +88,47 @@
                 Передзвоніть мені
               </button>
             </div>
+
+            <div id="burger" class="">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="nav-mob">
+    <ul class="main-menu">
+      <li class="menu-item-has-children">
+        <a href="catalog.html">БУДІВНИЦТВО</a>
+        <ul class="sub-menu">
+          <li><a href="#">ПЕРВИННА НЕРУХОМІСТЬ</a></li>
+          <li><a href="#">ВТОРИННА НЕРУХОМІСТЬ</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#">РЕМОНТ </a>
+      </li>
+      <li>
+        <a href="#"> ПРОЕКТИ</a>
+      </li>
+    </ul>
+    <div class="nav-mob-extra">
+      <div class="header-location">
+        <strong>Львівська область</strong>
+        с. Ременів, вул. Куземського 1
+      </div>
+      <div class="nav-offer">
+        <a href="tel:" class="header-phone">+38 (068) 856 95 35</a>
+
+        <button class="call-me-back open-popup" data-src="#consl-popup">
+          Передзвоніть мені
+        </button>
       </div>
     </div>
   </nav>

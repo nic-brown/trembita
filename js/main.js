@@ -1,9 +1,8 @@
 $(document).ready(function () {
-
   // якщо потрібно буде показувати лоадер один раз в сесії
   // if (!sessionStorage.isVisited) {
   //   sessionStorage.isVisited = 'true'
-  //   console.log('seesion true') 
+  //   console.log('seesion true')
   // } else {
   //   console.log('seesion false')
   // }
@@ -21,11 +20,36 @@ $(document).ready(function () {
   //   },
   // });
 
-  // Close currently active fancybox instance (pass `true` to close all instances) 
+  // Close currently active fancybox instance (pass `true` to close all instances)
   //$.fancybox.close();
 
-  gsap.registerPlugin(ScrollTrigger);
+  $("#burger").click(function () {
+    $(this).toggleClass("open");
+    $(".nav-mob").toggleClass("visible");
+    $("body").toggleClass("no-scrollbar");
 
+    if (!$("#main-nav").hasClass("fixed")) {
+      $("#main-nav").addClass("fixed");
+    }
+
+    if ($(window).scrollTop() < 10 && !$("body").hasClass("no-scrollbar")) {
+      $("#main-nav").removeClass("fixed");
+    }
+  });
+
+  // $(window).on("resize scroll", function () {
+  $(window).on("resize scroll", function () {
+    var scroll = $(window).scrollTop();
+    if (scroll >= 10) {
+      $("#main-nav").addClass("fixed");
+    } else {
+      if (!$(".nav-mob").hasClass("visible")) {
+        $("#main-nav").removeClass("fixed");
+      }
+    }
+  });
+
+  gsap.registerPlugin(ScrollTrigger);
 
   if ($(".main-header").length) {
     const tl = gsap.timeline({
@@ -56,11 +80,9 @@ $(document).ready(function () {
     });
   }
 
+  //  SIMPLE ANIMATIONS WITH GSAP
 
-
-  //  SIMPLE ANIMATIONS WITH GSAP 
-
-  const buttons = gsap.utils.toArray('.animate-me');
+  const buttons = gsap.utils.toArray(".animate-me");
   buttons.forEach((btn) => {
     gsap.from(btn, {
       scrollTrigger: {
@@ -68,18 +90,18 @@ $(document).ready(function () {
         start: "top 70%",
         trigger: btn,
         onEnter() {
-          btn.classList.add('play-ani');
+          btn.classList.add("play-ani");
         },
         onLeave() {
-          btn.classList.add('play-ani');
+          btn.classList.add("play-ani");
         },
         onEnterBack() {
-          btn.classList.add('play-ani');
+          btn.classList.add("play-ani");
         },
         onLeaveBack() {
-          btn.classList.add('play-ani');
-        }
-      }
+          btn.classList.add("play-ani");
+        },
+      },
     });
   });
 
@@ -113,7 +135,7 @@ $(document).ready(function () {
 
       slidesPerView: "auto",
       speed: 800,
-      spaceBetween: 12,
+      spaceBetween: 8,
       loop: true,
       centeredSlides: true,
       autoplay: {
@@ -125,17 +147,20 @@ $(document).ready(function () {
         nextEl: ".dream-next",
         prevEl: ".dream-prev",
       },
-      // breakpoints: {
-      //   768: {
-      //     slidesPerView: 3,
-      //   },
-      //   992: {
-      //     slidesPerView: 3,
-      //   },
-      //   1200: {
-      //     slidesPerView: 4,
-      //   },
-      // },
+      breakpoints: {
+        576: {
+          spaceBetween: 12,
+        },
+        //   768: {
+        //     slidesPerView: 3,
+        //   },
+        //   992: {
+        //     slidesPerView: 3,
+        //   },
+        //   1200: {
+        //     slidesPerView: 4,
+        //   },
+      },
     });
   }
 
@@ -168,24 +193,34 @@ $(document).ready(function () {
       centeredSlides: true,
       slidesPerView: "auto",
       initialSlide: 1,
+      spaceBetween: 140,
       // loop: true,
       coverflowEffect: {
         rotate: 0,
-        stretch: 500,
-        depth: 450,
-        modifier: 1,
+        stretch: 0,
+        depth: 0,
+        modifier: 0,
         slideShadows: false,
       },
       navigation: {
         nextEl: ".single-next",
         prevEl: ".single-prev",
       },
+      breakpoints: {
+        992: {
+          coverflowEffect: {
+            rotate: 0,
+            stretch: 500,
+            depth: 450,
+            modifier: 1,
+            slideShadows: false,
+          },
+        },
+      },
     });
   }
 
   // swiper.update()
-
-
 
   if ($(".parent-slider").length) {
     $(".parent-slider").each(function (index, element) {
@@ -201,9 +236,8 @@ $(document).ready(function () {
         autoHeight: true,
         navigation: {
           nextEl: ".parent-next-" + index,
-          prevEl: ".parent-prev-" + index
+          prevEl: ".parent-prev-" + index,
         },
-
       });
     });
 
@@ -218,14 +252,11 @@ $(document).ready(function () {
         noSwiping: false,
         navigation: {
           nextEl: ".btn-next-" + index,
-          prevEl: ".btn-prev-" + index
+          prevEl: ".btn-prev-" + index,
         },
-
       });
     });
   }
-
-
 
   $(".inline-gallery").click(function () {
     var galleryName = $(this).attr("data-fancybox");
@@ -243,7 +274,12 @@ $(document).ready(function () {
       buttons: ["close"],
       hash: false,
       backFocus: false,
-
+      beforeShow: function (instance, current) {
+        $(".fancybox-custom-overlay").addClass("active");
+      },
+      beforeClose: function (instance, current) {
+        $(".fancybox-custom-overlay").removeClass("active");
+      },
       btnTpl: {
         arrowLeft:
           '<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left" title="{{PREV}}">' +
@@ -257,14 +293,14 @@ $(document).ready(function () {
     });
   });
 
-  $('.port-item:first-child').addClass('active');
-  $('.tab-item:first-child').addClass('active');
+  $(".port-item:first-child").addClass("active");
+  $(".tab-item:first-child").addClass("active");
 
   $(".port-nav-btn").click(function (e) {
     if (!$(this).hasClass("active")) {
       $(this).addClass("active");
-      let portId = $(this).attr('data-port-id');
-      $('.port-item').removeClass('active');
+      let portId = $(this).attr("data-port-id");
+      $(".port-item").removeClass("active");
 
       $(portId).addClass("active");
       // console.log(portId);
@@ -272,13 +308,11 @@ $(document).ready(function () {
     $(".port-nav-btn").not(this).removeClass("active");
   });
 
-
-
   $(".tab-nav-btn").click(function (e) {
     if (!$(this).hasClass("active")) {
       $(this).addClass("active");
-      let portId = $(this).attr('data-tab-id');
-      $('.tab-item').removeClass('active');
+      let portId = $(this).attr("data-tab-id");
+      $(".tab-item").removeClass("active");
 
       $(portId).addClass("active");
       // console.log(portId);
@@ -286,31 +320,23 @@ $(document).ready(function () {
     $(".tab-nav-btn").not(this).removeClass("active");
   });
 
-
   $(".comm-card").click(function (e) {
     if (!$(this).hasClass("active")) {
       $(this).addClass("active");
     }
     $(".comm-card").not(this).removeClass("active");
-    $(".comm-btn").text('НАДІСЛАТИ ЗАЯВКУ').addClass('active').prop("disabled", false);
+    $(".comm-btn")
+      .text("НАДІСЛАТИ ЗАЯВКУ")
+      .addClass("active")
+      .prop("disabled", false);
 
-    // 
+    //
   });
 
-  $('.beefup').beefup({
+  $(".beefup").beefup({
     openSingle: true,
     // stayOpen: 'last'
   });
-
-  $(window).on("resize scroll", function () {
-    var scroll = $(window).scrollTop();
-    if (scroll >= 10) {
-      $("nav").addClass("fixed");
-    } else {
-      $("nav").removeClass("fixed");
-    }
-  });
-
 
   $(".open-popup").fancybox({
     type: "inline",
@@ -323,41 +349,50 @@ $(document).ready(function () {
     backFocus: false,
     autoFocus: false,
     beforeShow: function (instance, current) {
-      $('.fancybox-custom-overlay').addClass('active');
+      $(".fancybox-custom-overlay").addClass("active");
     },
     beforeClose: function (instance, current) {
-      $('.fancybox-custom-overlay').removeClass('active');
+      $(".fancybox-custom-overlay").removeClass("active");
     },
-    beforeLoad: function (instance, current) {
-      if (instance.current.src == "#main-menu-pop") {
-        instance.$refs.container.addClass("main-menu-pop-fancy");
-        var eTop =
-          $("#open-catalog").offset().top + $("#open-catalog").outerHeight(); //get the offset top of the element
-        $("#main-menu-pop").css(
-          "margin-top",
-          eTop - $(window).scrollTop() + "px"
-        );
-      }
-      // console.log(instance.current.src);
-    },
+    // beforeLoad: function (instance, current) {
+    //   if (instance.current.src == "#main-menu-pop") {
+    //     instance.$refs.container.addClass("main-menu-pop-fancy");
+    //     var eTop =
+    //       $("#open-catalog").offset().top + $("#open-catalog").outerHeight(); //get the offset top of the element
+    //     $("#main-menu-pop").css(
+    //       "margin-top",
+    //       eTop - $(window).scrollTop() + "px"
+    //     );
+    //   }
+    //   // console.log(instance.current.src);
+    // },
   });
 
-
-
-  $(".go-to-link").on('click', function (e) {
+  $(".go-to-link").on("click", function (e) {
     e.preventDefault();
-    var target = $(this).attr('href');
-    $('html, body').animate({
-      scrollTop: ($(target).offset().top)
-    }, 1000);
+    var target = $(this).attr("href");
+    $("html, body").animate(
+      {
+        scrollTop: $(target).offset().top,
+      },
+      1000
+    );
   });
 
-
-  $('.myfile').change(function () {
-    if ($(this).val() != '') $(this).closest('.input-row').children('.myfile-label').text('Прикріплено ' + $(this)[0].files.length + ' файл');
-    else $(this).closest('.input-row').children('.myfile-label').html('Завантажити пропозицію <br> <strong>у форматі PDF</strong><svg class="dream-arrow" width="22.000000" height="12.000000" viewBox="0 0 22 12" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <defs></defs> <path id="Vector" d="M15.678 0.243286C15.6042 0.319824 15.5457 0.410767 15.5059 0.511108C15.4658 0.611328 15.4453 0.718872 15.4453 0.827393C15.4453 0.936035 15.4658 1.04358 15.5059 1.1438C15.5457 1.24402 15.6042 1.33508 15.678 1.4115L19.2947 5.1958L0.786133 5.1958C0.577637 5.1958 0.377686 5.28247 0.230225 5.43677C0.0827637 5.59106 0 5.80029 0 6.01855C0 6.23669 0.0827637 6.44592 0.230225 6.60022C0.377686 6.75452 0.577637 6.84119 0.786133 6.84119L19.2791 6.84119L15.678 10.6008C15.5315 10.7549 15.4492 10.9635 15.4492 11.1808C15.4492 11.3981 15.5315 11.6067 15.678 11.7607C15.8252 11.9139 16.0244 12 16.2322 12C16.4399 12 16.6392 11.9139 16.7866 11.7607L21.7871 6.52856C21.8545 6.46106 21.908 6.37988 21.9446 6.29016C21.9812 6.20032 22 6.10376 22 6.00623C22 5.90857 21.9812 5.81201 21.9446 5.72217C21.908 5.63245 21.8545 5.55139 21.7871 5.48376L16.7944 0.243286C16.7212 0.16626 16.6343 0.10498 16.5386 0.0632324C16.4426 0.0214844 16.3398 0 16.2361 0C16.1323 0 16.0295 0.0214844 15.9338 0.0632324C15.8379 0.10498 15.751 0.16626 15.678 0.243286Z" fill-opacity="1.000000" fill-rule="nonzero"></path> </svg> ');
+  $(".myfile").change(function () {
+    if ($(this).val() != "")
+      $(this)
+        .closest(".input-row")
+        .children(".myfile-label")
+        .text("Прикріплено " + $(this)[0].files.length + " файл");
+    else
+      $(this)
+        .closest(".input-row")
+        .children(".myfile-label")
+        .html(
+          'Завантажити пропозицію <br> <strong>у форматі PDF</strong><svg class="dream-arrow" width="22.000000" height="12.000000" viewBox="0 0 22 12" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <defs></defs> <path id="Vector" d="M15.678 0.243286C15.6042 0.319824 15.5457 0.410767 15.5059 0.511108C15.4658 0.611328 15.4453 0.718872 15.4453 0.827393C15.4453 0.936035 15.4658 1.04358 15.5059 1.1438C15.5457 1.24402 15.6042 1.33508 15.678 1.4115L19.2947 5.1958L0.786133 5.1958C0.577637 5.1958 0.377686 5.28247 0.230225 5.43677C0.0827637 5.59106 0 5.80029 0 6.01855C0 6.23669 0.0827637 6.44592 0.230225 6.60022C0.377686 6.75452 0.577637 6.84119 0.786133 6.84119L19.2791 6.84119L15.678 10.6008C15.5315 10.7549 15.4492 10.9635 15.4492 11.1808C15.4492 11.3981 15.5315 11.6067 15.678 11.7607C15.8252 11.9139 16.0244 12 16.2322 12C16.4399 12 16.6392 11.9139 16.7866 11.7607L21.7871 6.52856C21.8545 6.46106 21.908 6.37988 21.9446 6.29016C21.9812 6.20032 22 6.10376 22 6.00623C22 5.90857 21.9812 5.81201 21.9446 5.72217C21.908 5.63245 21.8545 5.55139 21.7871 5.48376L16.7944 0.243286C16.7212 0.16626 16.6343 0.10498 16.5386 0.0632324C16.4426 0.0214844 16.3398 0 16.2361 0C16.1323 0 16.0295 0.0214844 15.9338 0.0632324C15.8379 0.10498 15.751 0.16626 15.678 0.243286Z" fill-opacity="1.000000" fill-rule="nonzero"></path> </svg> '
+        );
   });
-
 
   if ($("#single-content-buy").length) {
     let a = document.querySelector("#single-content-buy"),
@@ -371,9 +406,10 @@ $(document).ready(function () {
 
     function Ascroll() {
       let Ra = a.getBoundingClientRect(),
-        R1bottom = document
-          .querySelector(".single-content-holder")
-          .getBoundingClientRect().bottom - 30;
+        R1bottom =
+          document
+            .querySelector(".single-content-holder")
+            .getBoundingClientRect().bottom - 30;
       if (Ra.bottom < R1bottom) {
         if (b == null) {
           let Sa = getComputedStyle(a, ""),
