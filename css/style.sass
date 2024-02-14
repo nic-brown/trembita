@@ -163,6 +163,53 @@ h2,.pop-title
   padding: 16px 22px
 .text-center
   text-align: center
+.loader
+  background: rgb(255, 255, 255)
+  position: fixed
+  width: 100%
+  height: 100%
+  left: 0
+  top: 0
+  z-index: 100000
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  transition: .5s
+  opacity: 1
+  &.hidden
+    opacity: 0
+    visibility: hidden
+.logo-circle
+  margin-top: 28px
+  display: flex
+  span
+    background: rgb(255, 226, 144)
+    width: 8px
+    height: 8px
+    border-radius: 50%
+    margin: 0 2px
+    transform: scale(1)
+.logo-circle-1
+  animation: scale-cirlce .5s ease-in-out
+.logo-circle-2
+  animation: scale-cirlce .5s ease-in-out
+  animation-delay: .4s
+.logo-circle-3
+  animation: scale-cirlce .5s ease-in-out
+  animation-delay: .8s
+.logo-circle-4
+  animation: scale-cirlce .5s ease-in-out
+  animation-delay: 1.2s
+.logo-circle-5
+  animation: scale-cirlce .5s ease-in-out
+  animation-delay: 1.6s
+
+@keyframes scale-cirlce
+  0%,100%
+    transform: scale(1)
+  50%
+    transform: scale(2)
 //---------------------- THE END OF BASIC STYLES 
 
 .nav-mob
@@ -1589,54 +1636,6 @@ h2,.pop-title
   top: 18px
   width: 0
   left: 50%
-
-.loader
-  background: rgb(255, 255, 255)
-  position: fixed
-  width: 100%
-  height: 100%
-  left: 0
-  top: 0
-  z-index: 100000
-  display: flex
-  align-items: center
-  justify-content: center
-  flex-direction: column
-  transition: .5s
-  opacity: 1
-  &.hidden
-    opacity: 0
-    visibility: hidden
-.logo-circle
-  margin-top: 28px
-  display: flex
-  span
-    background: rgb(255, 226, 144)
-    width: 8px
-    height: 8px
-    border-radius: 50%
-    margin: 0 2px
-    transform: scale(1)
-.logo-circle-1
-  animation: scale-cirlce .5s ease-in-out
-.logo-circle-2
-  animation: scale-cirlce .5s ease-in-out
-  animation-delay: .4s
-.logo-circle-3
-  animation: scale-cirlce .5s ease-in-out
-  animation-delay: .8s
-.logo-circle-4
-  animation: scale-cirlce .5s ease-in-out
-  animation-delay: 1.2s
-.logo-circle-5
-  animation: scale-cirlce .5s ease-in-out
-  animation-delay: 1.6s
-
-@keyframes scale-cirlce
-  0%,100%
-    transform: scale(1)
-  50%
-    transform: scale(2)
 
 // ------------------
 // ------------------
